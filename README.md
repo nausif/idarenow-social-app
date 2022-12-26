@@ -1,4 +1,6 @@
 # idarenow (Social App) - University Final Year Project
+<img alt="Landing View" src="/android-app-client/app/src/main/ic_idare_launcher-web.png" width="200" hspace="20"><img alt="Landing View" src="/android-app-client/app/src/main/res/drawable/idarenowlogo.png" width="200" hspace="20">
+
 It is a social network android application platform that connects users with challenges, dares and contest. As users browse challenges, they’re encouraged to upload video clips documenting their participation. These can be liked or commented on by the users. In addition to participating in established challenges, users can create their own for challenging their peers.
 
 **Development Tools:** Android Studio, ASP.NET MVC Web Services, MS SQL Server
