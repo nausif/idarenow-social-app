@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AlphaRelevant_iDareNowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Assign_Challenge">
+          <Key>
+            <PropertyRef Name="Challenge_ID" />
+          </Key>
+          <Property Name="Challenge_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Challenge_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Challenge_From_ID" Type="int" Nullable="false" />
+          <Property Name="Challenge_To_User_ID" Type="int" />
+          <Property Name="Challenge_Approval_Status" Type="int" />
+          <Property Name="Challenge_Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="Challenge_Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Challenge_Duration" Type="int" Nullable="false" />
+          <Property Name="Challenge_Status" Type="int" Nullable="false" />
+          <Property Name="Challenge_Tittle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Challenge_Amount" Type="float" />
+          <Property Name="Challenge_Winner_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Challenge_Type">
+          <Key>
+            <PropertyRef Name="Challenge_Type_ID" />
+          </Key>
+          <Property Name="Challenge_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Challenge_Type_Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country_ID" Type="int" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notification_challenge_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="challenge_id" Type="int" Nullable="false" />
+          <Property Name="n_group_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notification_types">
+          <Key>
+            <PropertyRef Name="n_type_id" />
+          </Key>
+          <Property Name="n_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="notification_category" Type="varchar" MaxLength="50" />
+          <Property Name="sub_n_type_id" Type="int" />
+          <Property Name="notification_shown_status" Type="int" />
+        </EntityType>
+        <EntityType Name="Post_approve_reject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="v_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sub_notification_type">
+          <Key>
+            <PropertyRef Name="sub_n_type_id" />
+          </Key>
+          <Property Name="sub_n_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sub_n_type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction_ID" />
+          </Key>
+          <Property Name="Transaction_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Challenge_ID" Type="int" Nullable="false" />
+          <Property Name="Credit_User_ID" Type="int" Nullable="false" />
+          <Property Name="Debit_User_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Account_Type">
+          <Key>
+            <PropertyRef Name="User_Account_Type_ID" />
+          </Key>
+          <Property Name="User_Account_Type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Account_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Accounts">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Password" Type="varchar" MaxLength="50" />
+          <Property Name="User_Gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_Email" Type="varchar" MaxLength="50" />
+          <Property Name="User_PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="User_Birthdate" Type="datetime" />
+          <Property Name="User_Registration_Date" Type="datetime" />
+          <Property Name="User_Profile_Picture" Type="varchar(max)" />
+          <Property Name="User_Account_Type_ID" Type="int" Nullable="false" />
+          <Property Name="User_Facebook_ID" Type="varchar(max)" />
+          <Property Name="User_Country_ID" Type="int" />
+          <Property Name="User_City_ID" Type="int" />
+          <Property Name="User_Account_Status" Type="varchar" MaxLength="50" />
+          <Property Name="User_Ratings" Type="decimal" Precision="2" Scale="1" />
+          <Property Name="User_Challenged_Completed" Type="int" />
+          <Property Name="User_Approval_Rate" Type="int" />
+          <Property Name="User_Total_Earnings" Type="int" />
+          <Property Name="User_Balance_Total_Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Messages">
+          <Key>
+            <PropertyRef Name="Message_ID" />
+          </Key>
+          <Property Name="Message_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_From_ID" Type="int" Nullable="false" />
+          <Property Name="User_To_ID" Type="int" Nullable="false" />
+          <Property Name="Message_Timestamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message_Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Video_comments">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment_text" Type="varchar(max)" Nullable="false" />
+          <Property Name="Comment_score" Type="float" Nullable="false" />
+          <Property Name="Video_ID" Type="int" Nullable="false" />
+          <Property Name="Comment_Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="User_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Video_Status" Type="int" Nullable="false" />
+          <Property Name="Video_Upload_Date" Type="datetime" Nullable="false" />
+          <Property Name="Video_Score" Type="decimal" Precision="1" Scale="1" />
+          <Property Name="Challenge_id" Type="int" Nullable="false" />
+          <Property Name="Video_isapproved" Type="int" />
+          <Property Name="Video_to_user_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_Assign_Challenge_Challenge_Type">
+          <End Role="Challenge_Type" Type="Self.Challenge_Type" Multiplicity="1" />
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Challenge_Type">
+              <PropertyRef Name="Challenge_Type_ID" />
+            </Principal>
+            <Dependent Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assign_Challenge_User_Accounts">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_From_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notification_challenge_group_notification_types">
+          <End Role="notification_types" Type="Self.notification_types" Multiplicity="1" />
+          <End Role="notification_challenge_group" Type="Self.notification_challenge_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification_types">
+              <PropertyRef Name="n_type_id" />
+            </Principal>
+            <Dependent Role="notification_challenge_group">
+              <PropertyRef Name="n_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notification_types_Sub_notification_type">
+          <End Role="Sub_notification_type" Type="Self.Sub_notification_type" Multiplicity="0..1" />
+          <End Role="notification_types" Type="Self.notification_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sub_notification_type">
+              <PropertyRef Name="sub_n_type_id" />
+            </Principal>
+            <Dependent Role="notification_types">
+              <PropertyRef Name="sub_n_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_approve_reject_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Post_approve_reject" Type="Self.Post_approve_reject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Video_ID" />
+            </Principal>
+            <Dependent Role="Post_approve_reject">
+              <PropertyRef Name="v_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Assign_Challenge">
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Challenge_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User_Accounts">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Credit_User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User_Accounts1">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Debit_User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_User_Account_Type">
+          <End Role="User_Account_Type" Type="Self.User_Account_Type" Multiplicity="1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Account_Type">
+              <PropertyRef Name="User_Account_Type_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_Account_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Messages_User_Accounts">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="User_Messages" Type="Self.User_Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="User_Messages">
+              <PropertyRef Name="User_From_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_Comments_Videos">
+          <End Role="Videos" Type="Self.Videos" Multiplicity="1" />
+          <End Role="Video_comments" Type="Self.Video_comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Video_ID" />
+            </Principal>
+            <Dependent Role="Video_comments">
+              <PropertyRef Name="Video_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Assign_Challenge">
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="1" />
+          <End Role="Videos" Type="Self.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Challenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlphaRelevant_iDareNowModelStoreContainer">
+          <EntitySet Name="Assign_Challenge" EntityType="Self.Assign_Challenge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Challenge_Type" EntityType="Self.Challenge_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notification_challenge_group" EntityType="Self.notification_challenge_group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notification_types" EntityType="Self.notification_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post_approve_reject" EntityType="Self.Post_approve_reject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sub_notification_type" EntityType="Self.Sub_notification_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Account_Type" EntityType="Self.User_Account_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Accounts" EntityType="Self.User_Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Messages" EntityType="Self.User_Messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video_comments" EntityType="Self.Video_comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Assign_Challenge_Challenge_Type" Association="Self.FK_Assign_Challenge_Challenge_Type">
+            <End Role="Challenge_Type" EntitySet="Challenge_Type" />
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assign_Challenge_User_Accounts" Association="Self.FK_Assign_Challenge_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notification_challenge_group_notification_types" Association="Self.FK_notification_challenge_group_notification_types">
+            <End Role="notification_types" EntitySet="notification_types" />
+            <End Role="notification_challenge_group" EntitySet="notification_challenge_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notification_types_Sub_notification_type" Association="Self.FK_notification_types_Sub_notification_type">
+            <End Role="Sub_notification_type" EntitySet="Sub_notification_type" />
+            <End Role="notification_types" EntitySet="notification_types" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_approve_reject_Videos" Association="Self.FK_Post_approve_reject_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Post_approve_reject" EntitySet="Post_approve_reject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Assign_Challenge" Association="Self.FK_Transaction_Assign_Challenge">
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User_Accounts" Association="Self.FK_Transaction_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User_Accounts1" Association="Self.FK_Transaction_User_Accounts1">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_Cities" Association="Self.FK_User_Accounts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_Countries" Association="Self.FK_User_Accounts_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_User_Account_Type" Association="Self.FK_User_Accounts_User_Account_Type">
+            <End Role="User_Account_Type" EntitySet="User_Account_Type" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Messages_User_Accounts" Association="Self.FK_User_Messages_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="User_Messages" EntitySet="User_Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_Comments_Videos" Association="Self.FK_Video_Comments_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Video_comments" EntitySet="Video_comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Assign_Challenge" Association="Self.FK_Videos_Assign_Challenge">
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AlphaRelevant_iDareNowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Assign_Challenge">
+          <Key>
+            <PropertyRef Name="Challenge_ID" />
+          </Key>
+          <Property Name="Challenge_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Challenge_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Challenge_From_ID" Type="Int32" Nullable="false" />
+          <Property Name="Challenge_To_User_ID" Type="Int32" />
+          <Property Name="Challenge_Approval_Status" Type="Int32" />
+          <Property Name="Challenge_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Challenge_Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Challenge_Duration" Type="Int32" Nullable="false" />
+          <Property Name="Challenge_Status" Type="Int32" Nullable="false" />
+          <Property Name="Challenge_Tittle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Challenge_Amount" Type="Double" />
+          <Property Name="Challenge_Winner_ID" Type="Int32" />
+          <NavigationProperty Name="Challenge_Type" Relationship="Self.FK_Assign_Challenge_Challenge_Type" FromRole="Assign_Challenge" ToRole="Challenge_Type" />
+          <NavigationProperty Name="User_Accounts" Relationship="Self.FK_Assign_Challenge_User_Accounts" FromRole="Assign_Challenge" ToRole="User_Accounts" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_Assign_Challenge" FromRole="Assign_Challenge" ToRole="Transaction" />
+          <NavigationProperty Name="Videos" Relationship="Self.FK_Videos_Assign_Challenge" FromRole="Assign_Challenge" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Challenge_Type">
+          <Key>
+            <PropertyRef Name="Challenge_Type_ID" />
+          </Key>
+          <Property Name="Challenge_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Challenge_Type_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Assign_Challenge" Relationship="Self.FK_Assign_Challenge_Challenge_Type" FromRole="Challenge_Type" ToRole="Assign_Challenge" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country_ID" Type="Int32" Nullable="false" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Cities_Countries" FromRole="Cities" ToRole="Countries" />
+          <NavigationProperty Name="User_Accounts" Relationship="Self.FK_User_Accounts_Cities" FromRole="Cities" ToRole="User_Accounts" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Country_ID" />
+          </Key>
+          <Property Name="Country_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Countries" FromRole="Countries" ToRole="Cities" />
+          <NavigationProperty Name="User_Accounts" Relationship="Self.FK_User_Accounts_Countries" FromRole="Countries" ToRole="User_Accounts" />
+        </EntityType>
+        <EntityType Name="notification_challenge_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="challenge_id" Type="Int32" Nullable="false" />
+          <Property Name="n_group_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="notification_types" Relationship="Self.FK_notification_challenge_group_notification_types" FromRole="notification_challenge_group" ToRole="notification_types" />
+        </EntityType>
+        <EntityType Name="notification_types">
+          <Key>
+            <PropertyRef Name="n_type_id" />
+          </Key>
+          <Property Name="n_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="notification_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sub_n_type_id" Type="Int32" />
+          <Property Name="notification_shown_status" Type="Int32" />
+          <NavigationProperty Name="notification_challenge_group" Relationship="Self.FK_notification_challenge_group_notification_types" FromRole="notification_types" ToRole="notification_challenge_group" />
+          <NavigationProperty Name="Sub_notification_type" Relationship="Self.FK_notification_types_Sub_notification_type" FromRole="notification_types" ToRole="Sub_notification_type" />
+        </EntityType>
+        <EntityType Name="Post_approve_reject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="v_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Post_approve_reject_Videos" FromRole="Post_approve_reject" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Sub_notification_type">
+          <Key>
+            <PropertyRef Name="sub_n_type_id" />
+          </Key>
+          <Property Name="sub_n_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sub_n_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="notification_types" Relationship="Self.FK_notification_types_Sub_notification_type" FromRole="Sub_notification_type" ToRole="notification_types" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Transaction_ID" />
+          </Key>
+          <Property Name="Transaction_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Challenge_ID" Type="Int32" Nullable="false" />
+          <Property Name="Credit_User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Debit_User_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Assign_Challenge" Relationship="Self.FK_Transaction_Assign_Challenge" FromRole="Transaction" ToRole="Assign_Challenge" />
+          <NavigationProperty Name="User_Accounts" Relationship="Self.FK_Transaction_User_Accounts" FromRole="Transaction" ToRole="User_Accounts" />
+          <NavigationProperty Name="User_Accounts1" Relationship="Self.FK_Transaction_User_Accounts1" FromRole="Transaction" ToRole="User_Accounts" />
+        </EntityType>
+        <EntityType Name="User_Account_Type">
+          <Key>
+            <PropertyRef Name="User_Account_Type_ID" />
+          </Key>
+          <Property Name="User_Account_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Account_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User_Accounts" Relationship="Self.FK_User_Accounts_User_Account_Type" FromRole="User_Account_Type" ToRole="User_Accounts" />
+        </EntityType>
+        <EntityType Name="User_Accounts">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="User_Registration_Date" Type="DateTime" Precision="3" />
+          <Property Name="User_Profile_Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_Account_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="User_Facebook_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="User_Country_ID" Type="Int32" />
+          <Property Name="User_City_ID" Type="Int32" />
+          <Property Name="User_Account_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="User_Ratings" Type="Decimal" Precision="2" Scale="1" />
+          <Property Name="User_Challenged_Completed" Type="Int32" />
+          <Property Name="User_Approval_Rate" Type="Int32" />
+          <Property Name="User_Total_Earnings" Type="Int32" />
+          <Property Name="User_Balance_Total_Amount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Assign_Challenge" Relationship="Self.FK_Assign_Challenge_User_Accounts" FromRole="User_Accounts" ToRole="Assign_Challenge" />
+          <NavigationProperty Name="City" Relationship="Self.FK_User_Accounts_Cities" FromRole="User_Accounts" ToRole="Cities" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_User_Accounts_Countries" FromRole="User_Accounts" ToRole="Countries" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_User_Accounts" FromRole="User_Accounts" ToRole="Transaction" />
+          <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transaction_User_Accounts1" FromRole="User_Accounts" ToRole="Transaction" />
+          <NavigationProperty Name="User_Account_Type" Relationship="Self.FK_User_Accounts_User_Account_Type" FromRole="User_Accounts" ToRole="User_Account_Type" />
+          <NavigationProperty Name="User_Messages" Relationship="AlphaRelevant_iDareNowModel.FK_User_Messages_User_Accounts" FromRole="User_Accounts" ToRole="User_Messages" />
+          </EntityType>
+        <EntityType Name="User_Messages">
+          <Key>
+            <PropertyRef Name="Message_ID" />
+          </Key>
+          <Property Name="Message_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_From_ID" Type="Int32" Nullable="false" />
+          <Property Name="User_To_ID" Type="Int32" Nullable="false" />
+          <Property Name="Message_Timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User_Accounts" Relationship="AlphaRelevant_iDareNowModel.FK_User_Messages_User_Accounts" FromRole="User_Messages" ToRole="User_Accounts" />
+          </EntityType>
+        <EntityType Name="Video_comments">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comment_score" Type="Double" Nullable="false" />
+          <Property Name="Video_ID" Type="Int32" Nullable="false" />
+          <Property Name="Comment_Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Video" Relationship="Self.FK_Video_Comments_Videos" FromRole="Video_comments" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Video_Status" Type="Int32" Nullable="false" />
+          <Property Name="Video_Upload_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Video_Score" Type="Decimal" Precision="1" Scale="1" />
+          <Property Name="Challenge_id" Type="Int32" Nullable="false" />
+          <Property Name="Video_isapproved" Type="Int32" />
+          <Property Name="Video_to_user_id" Type="Int32" />
+          <NavigationProperty Name="Assign_Challenge" Relationship="Self.FK_Videos_Assign_Challenge" FromRole="Videos" ToRole="Assign_Challenge" />
+          <NavigationProperty Name="Post_approve_reject" Relationship="Self.FK_Post_approve_reject_Videos" FromRole="Videos" ToRole="Post_approve_reject" />
+          <NavigationProperty Name="Video_comments" Relationship="Self.FK_Video_Comments_Videos" FromRole="Videos" ToRole="Video_comments" />
+        </EntityType>
+        <Association Name="FK_Assign_Challenge_Challenge_Type">
+          <End Role="Challenge_Type" Type="Self.Challenge_Type" Multiplicity="1" />
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Challenge_Type">
+              <PropertyRef Name="Challenge_Type_ID" />
+            </Principal>
+            <Dependent Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assign_Challenge_User_Accounts">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_From_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Assign_Challenge">
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Challenge_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_Assign_Challenge">
+          <End Role="Assign_Challenge" Type="Self.Assign_Challenge" Multiplicity="1" />
+          <End Role="Videos" Type="AlphaRelevant_iDareNowModel.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Assign_Challenge">
+              <PropertyRef Name="Challenge_ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Challenge_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Country_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_Country_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notification_challenge_group_notification_types">
+          <End Role="notification_types" Type="Self.notification_types" Multiplicity="1" />
+          <End Role="notification_challenge_group" Type="Self.notification_challenge_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="notification_types">
+              <PropertyRef Name="n_type_id" />
+            </Principal>
+            <Dependent Role="notification_challenge_group">
+              <PropertyRef Name="n_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_notification_types_Sub_notification_type">
+          <End Role="Sub_notification_type" Type="Self.Sub_notification_type" Multiplicity="0..1" />
+          <End Role="notification_types" Type="Self.notification_types" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sub_notification_type">
+              <PropertyRef Name="sub_n_type_id" />
+            </Principal>
+            <Dependent Role="notification_types">
+              <PropertyRef Name="sub_n_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_approve_reject_Videos">
+          <End Role="Videos" Type="AlphaRelevant_iDareNowModel.Videos" Multiplicity="1" />
+          <End Role="Post_approve_reject" Type="Self.Post_approve_reject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Video_ID" />
+            </Principal>
+            <Dependent Role="Post_approve_reject">
+              <PropertyRef Name="v_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User_Accounts">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Credit_User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User_Accounts1">
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="Debit_User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Accounts_User_Account_Type">
+          <End Role="User_Account_Type" Type="Self.User_Account_Type" Multiplicity="1" />
+          <End Role="User_Accounts" Type="Self.User_Accounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Account_Type">
+              <PropertyRef Name="User_Account_Type_ID" />
+            </Principal>
+            <Dependent Role="User_Accounts">
+              <PropertyRef Name="User_Account_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Video_Comments_Videos">
+          <End Role="Videos" Type="AlphaRelevant_iDareNowModel.Videos" Multiplicity="1" />
+          <End Role="Video_comments" Type="Self.Video_comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Videos">
+              <PropertyRef Name="Video_ID" />
+            </Principal>
+            <Dependent Role="Video_comments">
+              <PropertyRef Name="Video_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AlphaRelevant_iDareNowEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Assign_Challenge" EntityType="Self.Assign_Challenge" />
+          <EntitySet Name="Challenge_Type" EntityType="Self.Challenge_Type" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="notification_challenge_group" EntityType="Self.notification_challenge_group" />
+          <EntitySet Name="notification_types" EntityType="Self.notification_types" />
+          <EntitySet Name="Post_approve_reject" EntityType="Self.Post_approve_reject" />
+          <EntitySet Name="Sub_notification_type" EntityType="Self.Sub_notification_type" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="User_Account_Type" EntityType="Self.User_Account_Type" />
+          <EntitySet Name="User_Accounts" EntityType="Self.User_Accounts" />
+          <EntitySet Name="User_Messages" EntityType="Self.User_Messages" />
+          <EntitySet Name="Video_comments" EntityType="Self.Video_comments" />
+          <EntitySet Name="Videos" EntityType="AlphaRelevant_iDareNowModel.Videos" />
+          <AssociationSet Name="FK_Assign_Challenge_Challenge_Type" Association="Self.FK_Assign_Challenge_Challenge_Type">
+            <End Role="Challenge_Type" EntitySet="Challenge_Type" />
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assign_Challenge_User_Accounts" Association="Self.FK_Assign_Challenge_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Assign_Challenge" Association="Self.FK_Transaction_Assign_Challenge">
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_Assign_Challenge" Association="Self.FK_Videos_Assign_Challenge">
+            <End Role="Assign_Challenge" EntitySet="Assign_Challenge" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_Cities" Association="Self.FK_User_Accounts_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_Countries" Association="Self.FK_User_Accounts_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notification_challenge_group_notification_types" Association="Self.FK_notification_challenge_group_notification_types">
+            <End Role="notification_types" EntitySet="notification_types" />
+            <End Role="notification_challenge_group" EntitySet="notification_challenge_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_notification_types_Sub_notification_type" Association="Self.FK_notification_types_Sub_notification_type">
+            <End Role="Sub_notification_type" EntitySet="Sub_notification_type" />
+            <End Role="notification_types" EntitySet="notification_types" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_approve_reject_Videos" Association="Self.FK_Post_approve_reject_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Post_approve_reject" EntitySet="Post_approve_reject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User_Accounts" Association="Self.FK_Transaction_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User_Accounts1" Association="Self.FK_Transaction_User_Accounts1">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Accounts_User_Account_Type" Association="Self.FK_User_Accounts_User_Account_Type">
+            <End Role="User_Account_Type" EntitySet="User_Account_Type" />
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Video_Comments_Videos" Association="Self.FK_Video_Comments_Videos">
+            <End Role="Videos" EntitySet="Videos" />
+            <End Role="Video_comments" EntitySet="Video_comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Messages_User_Accounts" Association="AlphaRelevant_iDareNowModel.FK_User_Messages_User_Accounts">
+            <End Role="User_Accounts" EntitySet="User_Accounts" />
+            <End Role="User_Messages" EntitySet="User_Messages" />
+          </AssociationSet>
+          </EntityContainer>
+        <Association Name="FK_User_Messages_User_Accounts">
+          <End Type="AlphaRelevant_iDareNowModel.User_Accounts" Role="User_Accounts" Multiplicity="1" />
+          <End Type="AlphaRelevant_iDareNowModel.User_Messages" Role="User_Messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Accounts">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="User_Messages">
+              <PropertyRef Name="User_From_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AlphaRelevant_iDareNowModelStoreContainer" CdmEntityContainer="AlphaRelevant_iDareNowEntities">
+          <EntitySetMapping Name="Assign_Challenge">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Assign_Challenge">
+              <MappingFragment StoreEntitySet="Assign_Challenge">
+                <ScalarProperty Name="Challenge_ID" ColumnName="Challenge_ID" />
+                <ScalarProperty Name="Challenge_Type_ID" ColumnName="Challenge_Type_ID" />
+                <ScalarProperty Name="Challenge_From_ID" ColumnName="Challenge_From_ID" />
+                <ScalarProperty Name="Challenge_To_User_ID" ColumnName="Challenge_To_User_ID" />
+                <ScalarProperty Name="Challenge_Approval_Status" ColumnName="Challenge_Approval_Status" />
+                <ScalarProperty Name="Challenge_Description" ColumnName="Challenge_Description" />
+                <ScalarProperty Name="Challenge_Created_Date" ColumnName="Challenge_Created_Date" />
+                <ScalarProperty Name="Challenge_Duration" ColumnName="Challenge_Duration" />
+                <ScalarProperty Name="Challenge_Status" ColumnName="Challenge_Status" />
+                <ScalarProperty Name="Challenge_Tittle" ColumnName="Challenge_Tittle" />
+                <ScalarProperty Name="Challenge_Amount" ColumnName="Challenge_Amount" />
+                <ScalarProperty Name="Challenge_Winner_ID" ColumnName="Challenge_Winner_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Challenge_Type">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Challenge_Type">
+              <MappingFragment StoreEntitySet="Challenge_Type">
+                <ScalarProperty Name="Challenge_Type_ID" ColumnName="Challenge_Type_ID" />
+                <ScalarProperty Name="Challenge_Type_Description" ColumnName="Challenge_Type_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notification_challenge_group">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.notification_challenge_group">
+              <MappingFragment StoreEntitySet="notification_challenge_group">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="challenge_id" ColumnName="challenge_id" />
+                <ScalarProperty Name="n_group_id" ColumnName="n_group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notification_types">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.notification_types">
+              <MappingFragment StoreEntitySet="notification_types">
+                <ScalarProperty Name="n_type_id" ColumnName="n_type_id" />
+                <ScalarProperty Name="notification_category" ColumnName="notification_category" />
+                <ScalarProperty Name="sub_n_type_id" ColumnName="sub_n_type_id" />
+                <ScalarProperty Name="notification_shown_status" ColumnName="notification_shown_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post_approve_reject">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Post_approve_reject">
+              <MappingFragment StoreEntitySet="Post_approve_reject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="v_id" ColumnName="v_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sub_notification_type">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Sub_notification_type">
+              <MappingFragment StoreEntitySet="Sub_notification_type">
+                <ScalarProperty Name="sub_n_type_id" ColumnName="sub_n_type_id" />
+                <ScalarProperty Name="sub_n_type_name" ColumnName="sub_n_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+                <ScalarProperty Name="Challenge_ID" ColumnName="Challenge_ID" />
+                <ScalarProperty Name="Credit_User_ID" ColumnName="Credit_User_ID" />
+                <ScalarProperty Name="Debit_User_ID" ColumnName="Debit_User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Account_Type">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.User_Account_Type">
+              <MappingFragment StoreEntitySet="User_Account_Type">
+                <ScalarProperty Name="User_Account_Type_ID" ColumnName="User_Account_Type_ID" />
+                <ScalarProperty Name="User_Account_Description" ColumnName="User_Account_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Accounts">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.User_Accounts">
+              <MappingFragment StoreEntitySet="User_Accounts">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_FullName" ColumnName="User_FullName" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="User_Gender" ColumnName="User_Gender" />
+                <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+                <ScalarProperty Name="User_PhoneNumber" ColumnName="User_PhoneNumber" />
+                <ScalarProperty Name="User_Birthdate" ColumnName="User_Birthdate" />
+                <ScalarProperty Name="User_Registration_Date" ColumnName="User_Registration_Date" />
+                <ScalarProperty Name="User_Profile_Picture" ColumnName="User_Profile_Picture" />
+                <ScalarProperty Name="User_Account_Type_ID" ColumnName="User_Account_Type_ID" />
+                <ScalarProperty Name="User_Facebook_ID" ColumnName="User_Facebook_ID" />
+                <ScalarProperty Name="User_Country_ID" ColumnName="User_Country_ID" />
+                <ScalarProperty Name="User_City_ID" ColumnName="User_City_ID" />
+                <ScalarProperty Name="User_Account_Status" ColumnName="User_Account_Status" />
+                <ScalarProperty Name="User_Ratings" ColumnName="User_Ratings" />
+                <ScalarProperty Name="User_Challenged_Completed" ColumnName="User_Challenged_Completed" />
+                <ScalarProperty Name="User_Approval_Rate" ColumnName="User_Approval_Rate" />
+                <ScalarProperty Name="User_Total_Earnings" ColumnName="User_Total_Earnings" />
+                <ScalarProperty Name="User_Balance_Total_Amount" ColumnName="User_Balance_Total_Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Messages">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.User_Messages">
+              <MappingFragment StoreEntitySet="User_Messages">
+                <ScalarProperty Name="Message_ID" ColumnName="Message_ID" />
+                <ScalarProperty Name="User_From_ID" ColumnName="User_From_ID" />
+                <ScalarProperty Name="User_To_ID" ColumnName="User_To_ID" />
+                <ScalarProperty Name="Message_Timestamp" ColumnName="Message_Timestamp" />
+                <ScalarProperty Name="Message_Description" ColumnName="Message_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Video_comments">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Video_comments">
+              <MappingFragment StoreEntitySet="Video_comments">
+                <ScalarProperty Name="Comment_ID" ColumnName="Comment_ID" />
+                <ScalarProperty Name="Comment_text" ColumnName="Comment_text" />
+                <ScalarProperty Name="Comment_score" ColumnName="Comment_score" />
+                <ScalarProperty Name="Video_ID" ColumnName="Video_ID" />
+                <ScalarProperty Name="Comment_Timestamp" ColumnName="Comment_Timestamp" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="AlphaRelevant_iDareNowModel.Videos">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="Video_ID" ColumnName="Video_ID" />
+                <ScalarProperty Name="Video_name" ColumnName="Video_name" />
+                <ScalarProperty Name="Video_Status" ColumnName="Video_Status" />
+                <ScalarProperty Name="Video_Upload_Date" ColumnName="Video_Upload_Date" />
+                <ScalarProperty Name="Video_Score" ColumnName="Video_Score" />
+                <ScalarProperty Name="Challenge_id" ColumnName="Challenge_id" />
+                <ScalarProperty Name="Video_isapproved" ColumnName="Video_isapproved" />
+                <ScalarProperty Name="Video_to_user_id" ColumnName="Video_to_user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

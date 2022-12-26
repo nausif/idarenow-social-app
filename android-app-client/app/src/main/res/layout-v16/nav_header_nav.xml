@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorSecondaryDark"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/nav_header_profile_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/sample_profile_image"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_shadow_radius="2"
+        app:civ_border="true"
+        app:civ_border_width="1dp"
+        />
+    <TextView
+        android:id="@+id/nav_header_profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:text="SAMPLE NAME"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+</LinearLayout>

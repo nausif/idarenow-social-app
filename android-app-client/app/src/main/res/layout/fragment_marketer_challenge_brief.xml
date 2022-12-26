@@ -1,0 +1,217 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="vertical"
+    tools:context="com.alpharelevant.idarenow.MarketerChallengeBriefFragment"
+    android:layout_marginTop="10dp"
+    android:paddingTop="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/brief_profile_image"
+        android:src="@drawable/sample_profile_image"
+        android:layout_marginLeft="10dp"
+        app:civ_border_width="0.5dp"
+        app:civ_border="false"
+        app:civ_shadow="false"
+        app:civ_shadow_color="#8BC34A"
+        app:civ_shadow_radius="0"/>
+   <TextView
+       android:id="@+id/brief_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="5dp"
+       android:textStyle="bold"
+       android:textColor="#000"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_toRightOf="@id/brief_profile_image"
+       android:text="Sample Name"/>
+
+        <TextView
+            android:layout_below="@id/brief_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@id/brief_profile_image"
+            android:text="Challenged You."/>
+
+        <TextView
+            android:id="@+id/brief_title_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brief_profile_image"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:text="Challenge Title:"
+            />
+
+
+        <TextView
+            android:id="@+id/brief_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brief_title_label"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="You have to do icebucket challenge like bill gates."
+            />
+
+
+        <TextView
+            android:id="@+id/brief_description_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brief_title"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:text="Challenge Description:"
+            />
+
+
+        <TextView
+            android:id="@+id/brief_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/brief_description_label"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="You have to do icebucket challenge like bill gates.sadasdasdasdasdsadasdasdasdasdasdasdasd"
+            />
+
+        <TextView
+            android:id="@+id/brief_timer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/brief_timerText"
+            android:layout_alignStart="@+id/brief_timerText"
+            android:layout_below="@+id/brief_description"
+            android:layout_marginTop="20dp"
+            android:text="DEADLINE"
+            android:textColor="#000" />
+
+        <cn.iwgang.countdownview.CountdownView
+
+            android:layout_below="@id/brief_timer_label"
+            android:id="@+id/brief_timerText"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:isHideTimeBackground="true"
+            app:isShowDay="true"
+            app:isShowHour="true"
+            app:isShowMinute="true"
+            app:isShowSecond="true"
+            app:timeTextColor="#000000"
+            app:timeTextSize="26sp"
+            android:paddingTop="4dp"
+            app:suffixGravity="bottom"
+            app:suffixTextColor="#000000"
+            app:suffixTextSize="12sp"
+            app:suffixDay="d"
+            app:suffixHour="h"
+            app:suffixMinute="m"
+            app:suffixSecond="s"
+            />
+
+        <TextView
+            android:id="@+id/brief_price_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/brief_timer_label"
+            android:layout_alignBottom="@+id/brief_timer_label"
+            android:layout_alignEnd="@+id/brief_btn_Record"
+            android:layout_alignRight="@+id/brief_btn_Record"
+            android:text="PRICE MONEY"
+            android:textColor="#000" />
+
+
+        <TextView
+            android:id="@+id/brief_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/brief_price_label"
+            android:layout_alignRight="@+id/brief_price_label"
+            android:layout_alignTop="@+id/brief_timerText"
+            android:text="N/A"
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/accept_btn_accept_reject"
+            android:layout_width="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/brief_price"
+            android:layout_height="50dp"
+            android:background="@drawable/approve_clicked" />
+
+        <Button
+            android:id="@+id/reject_btn_accept_reject"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/brief_price"
+            android:background="@drawable/reject_clicked"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+
+
+        <Button
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorSecondaryDark"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/brief_price"
+            android:layout_height="wrap_content"
+            android:text="LETS DO IT"
+            android:id="@+id/brief_btn_Record" />
+
+        <TextView
+            android:id="@+id/brief_challenge_status_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/brief_price"
+            android:textAlignment="center"
+            android:text="This challenge is rejected by you."
+            android:textColor="#cb0f13"
+            android:textSize="25sp" />
+
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

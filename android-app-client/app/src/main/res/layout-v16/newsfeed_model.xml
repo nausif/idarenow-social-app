@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        card_view:cardElevation="10dp"
+        android:elevation="8dp"
+
+        card_view:cardMaxElevation="10dp"
+        card_view:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:paddingTop="20dp">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/newsFeed_profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/sample_profile_image"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                app:civ_shadow_color="#8BC34A"
+                app:civ_shadow_radius="1" />
+
+            <TextView
+                android:id="@+id/newsFeed_cardView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/newsFeed_profile_image"
+                android:singleLine="true"
+                android:text="Nausif Momin"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/newsFeed_cardView_time_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/newsFeed_cardView_name"
+                android:layout_below="@+id/newsFeed_cardView_name"
+                android:singleLine="true"
+                android:text="5 MIN AGO  - karachi, pakistan"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="15dp" />
+
+
+            <ImageView
+                android:id="@+id/newsFeed_cardView_dots"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:visibility="invisible"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/icon_dots" />
+
+
+            <TextView
+                android:id="@+id/newsFeed_cardView_Challenge_Tittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newsFeed_profile_image"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:text="You have to do icebucket challenge"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/newsFeed_cardView_Challenge_by"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newsFeed_cardView_Challenge_Tittle"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:singleLine="true"
+                android:text="Challenged By Tabraiz Malik "
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <tcking.github.com.giraffeplayer2.VideoView
+                android:id="@+id/newsFeed_cardView_video"
+                android:layout_height="270dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:minHeight="10dp"
+                android:layout_below="@+id/newsFeed_cardView_Challenge_by"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/newsFeed_cardView_approve"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/newsFeed_cardView_video"
+                android:layout_marginLeft="16dp"
+
+                android:src="@drawable/approve" />
+
+            <TextView
+                android:id="@+id/txt_approve_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:visibility="invisible"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:textColor="#006400"
+                android:layout_below="@id/newsFeed_cardView_video"
+                android:layout_toRightOf="@+id/newsFeed_cardView_approve"
+                android:text="100"/>
+
+            <ImageView
+                android:id="@+id/newsFeed_cardView_reject"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_below="@id/newsFeed_cardView_video"
+                android:layout_marginLeft="45dp"
+                android:layout_toRightOf="@+id/newsFeed_cardView_approve"
+                android:src="@drawable/reject" />
+
+            <TextView
+                android:id="@+id/txt_reject_ratio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:textColor="#cb0f13"
+                android:layout_below="@id/newsFeed_cardView_video"
+                android:layout_toRightOf="@+id/newsFeed_cardView_reject"
+                android:text="100"/>
+
+
+            <ImageView
+                android:id="@+id/newsFeed_cardView_comment"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@id/newsFeed_cardView_reject"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/newsFeed_cardView_video"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/icon_comment" />
+
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/newsFeed_cardView_approve"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:background="#BDBDBD" />
+
+            <TextView
+                android:id="@+id/newsFeed_cardView_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Write your description here..."
+                android:textColor="@android:color/black" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

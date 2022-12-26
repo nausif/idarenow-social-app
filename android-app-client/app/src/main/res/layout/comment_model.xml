@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFF">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/comment_profile_image"
+        android:src="@drawable/sample_profile_image"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="20dp"
+        app:civ_border_width="0.5dp"
+        app:civ_border="false"
+        app:civ_shadow="false"
+        app:civ_shadow_color="#8BC34A"
+        app:civ_shadow_radius="0"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relLayout1"
+        android:layout_toRightOf="@+id/comment_profile_image"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/grey_border_bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            >
+
+
+            <TextView
+                android:id="@+id/comment_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:text="sample name"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/comment_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/comment_username"
+                android:layout_below="@+id/comment_username"
+                android:text="this is a comment asdadas dasd asd asd asda sdas das dad adasd asda asd"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/comment_time_posted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/comment_description"
+               android:layout_alignLeft="@id/comment_description"
+                android:layout_marginTop="15dp"
+                android:text="45 m"
+                android:textColor="@color/colorGrey"
+                android:textSize="14sp" />
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

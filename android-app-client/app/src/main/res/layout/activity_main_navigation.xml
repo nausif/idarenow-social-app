@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    tools:context="com.alpharelevant.idarenow.MainNavigationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/main_nav_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_navigation"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:animateLayoutChanges="true">
+        </FrameLayout>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="start"
+            app:itemIconTint="@color/bottomnav_itemscolor_selector"
+            app:itemTextColor="@color/bottomnav_itemscolor_selector"
+            android:background="#F1F1F1"
+            app:menu="@menu/navigation" />
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorSecondaryDark"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:subtitleTextColor="@color/colorWhite" />
+
+        </android.support.design.widget.AppBarLayout>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/side_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_nav"
+        app:itemIconTint="#696969"
+        app:itemTextColor="#696969"
+        app:menu="@menu/navigation_menu_more"></android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

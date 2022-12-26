@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d8e3350474fc4620a7f4d7d8badbba6e" Name="Diagram1">
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Assign_Challenge" Width="1.875" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Challenge_Type" Width="1.875" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.City" Width="1.875" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Country" Width="1.875" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.notification_challenge_group" Width="1.875" PointX="12.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.notification_types" Width="1.875" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Post_approve_reject" Width="1.875" PointX="12" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Sub_notification_type" Width="1.875" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.sysdiagram" Width="1.875" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Transaction" Width="1.875" PointX="9.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.User_Account_Type" Width="1.875" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.User_Accounts" Width="1.875" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.User_Messages" Width="1.875" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Video_comments" Width="1.875" PointX="12" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AlphaRelevant_iDareNowModel.Videos" Width="1.875" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Assign_Challenge_Challenge_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Assign_Challenge_User_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Transaction_Assign_Challenge" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Videos_Assign_Challenge" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Cities_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_User_Accounts_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_User_Accounts_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_notification_challenge_group_notification_types" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_notification_types_Sub_notification_type" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Post_approve_reject_Videos" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Transaction_User_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Transaction_User_Accounts1" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_User_Accounts_User_Account_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_Video_Comments_Videos" ManuallyRouted="false" />
+        <AssociationConnector Association="AlphaRelevant_iDareNowModel.FK_User_Messages_User_Accounts" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

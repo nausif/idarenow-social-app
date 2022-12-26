@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.alpharelevant.idarenow.EditProfileActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/white_grey_border_bottom"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorSecondaryDark"
+                android:fitsSystemWindows="true"
+                android:id="@+id/profileToolBar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/backArrow"
+                        app:srcCompat="@drawable/ic_arrow_back_black_24dp"/>
+
+                    <TextView
+                        android:layout_toRightOf="@+id/backArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Edit Profile"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/profileName"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/saveChanges"
+                        app:srcCompat="@drawable/ic_check_black_24dp"
+                        android:layout_alignParentRight="true"/>
+
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+
+        </android.support.design.widget.AppBarLayout>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/EditProfileCircularBlock"
+                android:layout_width="match_parent"
+                android:elevation="1dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/Edit_header_cover_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="205dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cover" />
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/Edit_profile_image"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="140dp"
+                    android:elevation="5dp"
+                    android:src="@drawable/sample_profile_image"
+                    app:civ_border_color="@android:color/white"
+                    app:civ_border_width="4dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="#8BC34A"
+                    app:civ_shadow_radius="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <TextView
+                    android:id="@+id/Edit_txt_change_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Photo"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18dp"
+                    app:layout_constraintTop_toBottomOf="@id/Edit_profile_image"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:maxLines="1"
+                    android:textColor="@color/com_facebook_blue"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_below="@id/EditProfileCircularBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:hint="Full Name"
+                        android:ems="10"
+                        android:id="@+id/Edit_Name"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="8dp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:hint="Email"
+                        android:enabled="false"
+                        android:maxLines="1"
+                        android:ems="10"
+                        android:id="@+id/Edit_Email"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/Edit_ProfileBirthday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Birthday"
+                        android:maxLines="1"
+                        android:lines="1"
+                        android:descendantFocusability="blocksDescendants"
+                        android:ems="10"
+                        android:inputType="none"
+                        android:textIsSelectable="true"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="8dp">
+                    <AutoCompleteTextView
+                        android:id="@+id/Edit_country_spinner"
+                        android:layout_width="match_parent"
+                        android:maxLines="1"
+                        android:completionThreshold="1"
+                        android:layout_height="wrap_content"
+                        android:hint="Country"
+                        android:lines="1"
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="8dp">
+                    <AutoCompleteTextView
+                        android:id="@+id/Edit_city_spinner"
+                        android:layout_width="match_parent"
+                        android:completionThreshold="1"
+                        android:maxLines="1"
+                        android:layout_height="wrap_content"
+                        android:hint="City"
+                        android:lines="1"
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

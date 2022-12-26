@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/challengesummary_profile_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/sample_profile_image"
+        android:layout_centerVertical="true"
+        app:civ_border="false"
+        app:civ_shadow="false"
+        app:civ_shadow_color="#8BC34A"
+        app:civ_shadow_radius="0"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/challengesummary_profile_image"
+        android:layout_centerVertical="true">
+
+
+    <TextView
+        android:id="@+id/challengesummary_challengeTittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingRight="5dp"
+        android:ellipsize="end"
+        android:scrollHorizontally="true"
+        android:paddingEnd="25dp"
+        android:text="You have to do ice bucket challenge"
+        android:textColor="#000"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        />
+
+
+        <TextView
+            android:id="@+id/challengesummary_challengerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/challengesummary_challengeTittle"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:text="by Nausif"
+            android:textSize="13dp"
+            />
+
+        <TextView
+            android:id="@+id/challengeSummary_seperator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/challengesummary_challengeTittle"
+            android:layout_toRightOf="@id/challengesummary_challengerName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:text="▪"
+            android:textSize="13dp"
+            />
+
+    <TextView
+        android:id="@+id/challengesummary_dateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/challengesummary_challengeTittle"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/challengeSummary_seperator"
+        android:layout_marginTop="2dp"
+        android:text="13hr ago"
+        android:textSize="13dp"
+        android:textColor="@color/colorSecondary"
+        />
+
+        <ImageView
+            android:id="@+id/icon_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_chevron_right_black_24dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

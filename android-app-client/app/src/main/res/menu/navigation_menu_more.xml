@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    tools:showIn="navigation_view">
+
+
+    <item android:title="Challenge Summary"  >
+        <menu>
+            <group android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/nav_challenge_history"
+                    android:icon="@drawable/ic_history_black_24dp"
+                    android:title="Challenge History" />
+                <item
+                    android:id="@+id/nav_current_challenges"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="Current Challenges" />
+                <item
+                    android:id="@+id/nav_challenges_by_you"
+                    android:icon="@drawable/ic_challenge_by_you_black_24dp"
+                    android:title="Challenge by you" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="User Balance"  >
+        <menu>
+            <group android:checkableBehavior="single" >
+                <item
+                    android:id="@+id/nav_transcation_Details"
+                    android:icon="@drawable/icon_wallet_selector"
+                    android:title="Transactions" />
+            </group>
+        </menu>
+    </item>
+
+
+
+    <item android:title="Settings" >
+        <menu>
+            <item
+                android:id="@+id/nav_Edit_profile"
+                android:icon="@drawable/ic_edit_black_24dp"
+                android:title="Edit Profile" />
+            <item
+                android:id="@+id/nav_ChangePassword"
+                android:icon="@drawable/ic_lock_open_black_24dp"
+                android:title="Change Password" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout_black_24dp"
+                android:title="Logout" />
+
+        </menu>
+    </item>
+
+</menu>

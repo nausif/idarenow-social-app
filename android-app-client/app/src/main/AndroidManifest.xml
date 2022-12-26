@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.alpharelevant.idarenow">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name="android.support.multidex.MultiDexApplication"
+        android:allowBackup="true"
+        android:screenOrientation="portrait"
+        android:icon="@mipmap/ic_idare_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".LandingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainNavigationActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- <activity android:name=".LandingActivity"/> -->
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".MessageActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".AcceptRejectActivity"
+            android:label="asdasdasd" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />
+
+        <!-- <activity -->
+        <!-- android:name=".MainNavigationActivity" -->
+        <!-- android:label="@string/title_activity_main_navigation"></activity> -->
+        <activity android:name=".AddChallengeActivity" />
+        android:label="@string/title_activity_profile_search" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:label="@string/title_activity_edit_profile" />
+
+        <!-- Services -->
+        <service
+            android:name=".data.background_services.NotificationService"
+            android:exported="false" />
+
+        <activity android:name=".PostCommentActivity" />
+        <activity android:name=".MarketerChallengeActivity" />
+        <activity android:name=".AssignMarketerChallenge" />
+        <activity android:name=".TranscationDetailsActivity" />
+        <activity
+            android:name=".BaseMessageActivity"
+            android:label="@string/title_activity_base_message" />
+        <activity android:name=".ChangePasswordActivity"></activity>
+    </application>
+
+</manifest>

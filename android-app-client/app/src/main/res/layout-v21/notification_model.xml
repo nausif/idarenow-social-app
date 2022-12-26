@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp">
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/notification_profile_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:elevation="5dp"
+        android:src="@drawable/sample_profile_image"
+        android:layout_centerVertical="true"
+        app:civ_border="false"
+        app:civ_shadow="false"
+        app:civ_shadow_color="#8BC34A"
+        app:civ_shadow_radius="0"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/notification_profile_image"
+        android:layout_centerVertical="true">
+    <TextView
+        android:id="@+id/notification_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:maxLines="3"
+        android:text="Nausif Momin Challenge you. The Tittle of Challenge is You have to do ice bucket challenge..."
+        android:textColor="#5e5b5b"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        />
+
+
+
+    <TextView
+        android:id="@+id/notification_dateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_txt"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:text="13hr ago"
+        android:textSize="13dp"
+        android:textColor="@color/colorSecondary"
+        />
+
+    </RelativeLayout>
+
+</RelativeLayout>
